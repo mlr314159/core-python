@@ -6,6 +6,18 @@
 
     <div class="row">
       <div class="col-lg-8 col-md-10 mx-auto">
+        {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            <div class="flashes">
+                <ul>
+                    {% for message in messages %}
+                        <li>{{ message }}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+        {% endif %}
+        {% endwith %}
+
         <p>Want to get in touch? Fill out the form below to send me a message and I will get back to you as soon as possible!</p>
         
         <form method="POST" name="sentMessage" id="contactForm" novalidate>
